@@ -1,0 +1,51 @@
+ion-content {
+    --background: #e0e0e0; /* Fondo gris claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Hacer que el contenido ocupe toda la altura visible */
+  }
+  
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%; /* Asegura que todo el contenido esté centrado verticalmente */
+  }
+  
+  .logo {
+    width: 150px; /* Ajusta el tamaño del logo si es necesario */
+    margin-bottom: 20px; /* Separación entre el logo y el texto */
+  }
+  
+  .welcome-text {
+    font-size: 18px;
+    margin-bottom: 20px; /* Separación entre el texto y el botón */
+  }
+  
+  ion-button {
+    --background: #ff8200; /* Color del botón */
+    border-radius: 15px;
+    padding: 8px 16px;
+    animation: colorChange 1s infinite ease-in-out;
+  
+    /* Centrar el botón y expandirlo */
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  @keyframes colorChange {
+    0% {
+      --background: #ff8200;
+    }
+    50% {
+      --background: #ffa733;
+    }
+    100% {
+      --background: #ff8200;
+    }
+  }
+  

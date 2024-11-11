@@ -1,0 +1,17 @@
+ion-content {
+    --padding-top: 56px;
+  }
+
+
+  .salto-button {
+    animation: salto 1s infinite;
+  }
+  
+  @keyframes salto {
+    0%, 100% {
+      transform: translateY(0); /* Posición inicial */
+    }
+    50% {
+      transform: translateY(-10px); /* Salto hacia arriba */
+    }
+  }

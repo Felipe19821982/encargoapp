@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Criptoactivos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleView()">
+        <ion-icon [name]="viewMode === 'list' ? 'grid' : 'list'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div [ngClass]="{'list-view': viewMode === 'list', 'grid-view': viewMode === 'grid'}">
+    <ion-card *ngFor="let coin of coins">
+      <ion-card-header>
+        <ion-card-title>{{ coin.name }}</ion-card-title>
+        <ion-card-subtitle>{{ coin.symbol }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="coin.iconUrl" alt="{{ coin.name }}">
+        <p>Precio: {{ coin.price | currency:'USD':true }}</p>
+        <p>Capitalización de mercado: {{ coin.marketCap | currency:'USD':true }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -25,6 +25,22 @@ const routes: Routes = [
     path: 'listar-carros',
     loadChildren: () => import('./listar-carros/listar-carros.module').then( m => m.ListarCarrosPageModule)
   },
+  {
+    path: 'criptoactivos',
+    loadChildren: () => import('./criptoactivos/criptoactivos.module').then( m => m.CriptoactivosPageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./components/modal/modal.module').then( m => m.ModalPageModule)
+  },
+  {
+    path: 'solicitud-viaje',
+    loadChildren: () => import('./solicitud-viaje/solicitud-viaje.module').then( m => m.SolicitudViajePageModule)
+  },
+  {
+    path: 'confirmacion-solicitud',
+    loadChildren: () => import('./confirmacion-solicitud/confirmacion-solicitud.module').then( m => m.ConfirmacionSolicitudPageModule)
+  },
 ];
 
 @NgModule({

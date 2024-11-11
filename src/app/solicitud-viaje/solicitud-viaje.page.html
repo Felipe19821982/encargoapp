@@ -1,0 +1,48 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Solicitud de viaje</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-item>
+    <video controls autoplay loop style="width: 100%; height: auto;">
+      <source src="assets/VideoAuto.mp4" type="video/mp4">
+    </video>
+  </ion-item>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Destino</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha de salida</ion-label>
+      <ion-datetime display-format="DD MMM YYYY HH:mm"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha de regreso</ion-label>
+      <ion-datetime display-format="DD MMM YYYY HH:mm"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Número de personas</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Comentarios adicionales</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>    
+    <div class="ion-padding">
+    <ion-button expand="full" color="primary" (click)="enviarSolicitud()">Enviar Solicitud</ion-button>
+    </div>
+  </ion-list>
+</ion-content>
