@@ -12,19 +12,12 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule),
-    canActivate:[authGuard]
-  },
+
   {
     path: 'portada',
     loadChildren: () => import('./portada/portada.module').then( m => m.PortadaPageModule)
   },
-  {
-    path: 'listar-carros',
-    loadChildren: () => import('./listar-carros/listar-carros.module').then( m => m.ListarCarrosPageModule)
-  },
+
   {
     path: 'criptoactivos',
     loadChildren: () => import('./criptoactivos/criptoactivos.module').then( m => m.CriptoactivosPageModule)
