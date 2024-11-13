@@ -34,6 +34,12 @@ const routes: Routes = [
     path: 'confirmacion-solicitud',
     loadChildren: () => import('./confirmacion-solicitud/confirmacion-solicitud.module').then( m => m.ConfirmacionSolicitudPageModule)
   },
+ 
+  {
+    path: 'viaje-activo',
+    loadChildren: () => import('./viaje-activo/viaje-activo.module').then( m => m.ViajeActivoPageModule)
+  },
+
 ];
 
 @NgModule({

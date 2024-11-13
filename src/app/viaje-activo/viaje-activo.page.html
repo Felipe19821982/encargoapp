@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Viaje Activo</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Nombre de usuario:</ion-label>
+      <ion-text>{{ nombreUsuario }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Destino:</ion-label>
+      <ion-text>{{ destino === 'puenteAlto' ? 'Puente Alto' : 'Maipú' }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Fecha de salida:</ion-label>
+      <ion-text>{{ fechaSalida }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Cantidad de personas:</ion-label>
+      <ion-text>{{ cantidadPersonas }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Costo total:</ion-label>
+      <ion-text>{{ costoTotal | currency:'USD' }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Comentarios:</ion-label>
+      <ion-text>{{ comentarios }}</ion-text>
+    </ion-item>
+  </ion-list>
+
+  <!-- Aquí iría el componente del mapa, dependiendo de la integración de mapas que utilices -->
+  <div id="mapaViaje" style="width: 100%; height: 300px; background-color: lightgray;">
+    <!-- Código del mapa aquí -->
+  </div>
+</ion-content>
