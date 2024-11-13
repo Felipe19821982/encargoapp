@@ -13,7 +13,7 @@
 
     <ion-item>
       <ion-label>Destino:</ion-label>
-      <ion-text>{{ destino === 'puenteAlto' ? 'Puente Alto' : 'Maipú' }}</ion-text>
+      <ion-text>{{ destinoSeleccionado === 'puenteAlto' ? 'Puente Alto' : 'Maipú' }}</ion-text>
     </ion-item>
 
     <ion-item>
@@ -35,10 +35,14 @@
       <ion-label>Comentarios:</ion-label>
       <ion-text>{{ comentarios }}</ion-text>
     </ion-item>
-  </ion-list>
 
-  <!-- Aquí iría el componente del mapa, dependiendo de la integración de mapas que utilices -->
-  <div id="mapaViaje" style="width: 100%; height: 300px; background-color: lightgray;">
-    <!-- Código del mapa aquí -->
-  </div>
+    <!-- Enlace al mapa de Google Maps -->
+    <ion-item *ngIf="mapUrl">
+      <ion-label>Ver mapa del destino</ion-label>
+      <ion-text>
+        <a [href]="mapUrl" target="_blank">Ver en Google Maps</a>
+      </ion-text>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
