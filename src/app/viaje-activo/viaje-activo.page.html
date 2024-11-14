@@ -35,14 +35,8 @@
       <ion-label>Comentarios:</ion-label>
       <ion-text>{{ comentarios }}</ion-text>
     </ion-item>
-
-    <!-- Enlace al mapa de Google Maps -->
-    <ion-item *ngIf="mapUrl">
-      <ion-label>Ver mapa del destino</ion-label>
-      <ion-text>
-        <a [href]="mapUrl" target="_blank">Ver en Google Maps</a>
-      </ion-text>
-    </ion-item>
   </ion-list>
-</ion-content>
 
+  <!-- Contenedor del mapa -->
+  <div id="map" style="width: 100%; height: 300px;"></div>
+</ion-content>
