@@ -28,7 +28,7 @@
 
     <ion-item>
       <ion-label>Costo total:</ion-label>
-      <ion-text>{{ costoTotal | currency:'USD' }}</ion-text>
+      <ion-text>{{ costoTotal | currency: 'USD' }}</ion-text>
     </ion-item>
 
     <ion-item>
@@ -39,4 +39,9 @@
 
   <!-- Contenedor del mapa -->
   <div id="map" style="width: 100%; height: 300px;"></div>
+
+  <!-- Botón para calificar -->
+  <ion-button expand="full" color="primary" (click)="irACalificar()">
+    Calificar tu experiencia
+  </ion-button>
 </ion-content>

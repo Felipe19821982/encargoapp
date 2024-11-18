@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'viaje-activo',
     loadChildren: () => import('./viaje-activo/viaje-activo.module').then( m => m.ViajeActivoPageModule)
+  },  {
+    path: 'calificar-experiencia',
+    loadChildren: () => import('./calificar-experiencia/calificar-experiencia.module').then( m => m.CalificarExperienciaPageModule)
   },
+
 
 ];
 

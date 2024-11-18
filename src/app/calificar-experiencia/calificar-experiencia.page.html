@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calificar Experiencia</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/viaje-activo"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>Califica tu experiencia:</ion-label>
+    <ion-range
+      min="1"
+      max="5"
+      step="1"
+      snaps="true"
+      [(ngModel)]="calificacion"
+      pin="true"
+    >
+      <ion-icon slot="start" name="star-outline"></ion-icon>
+      <ion-icon slot="end" name="star"></ion-icon>
+    </ion-range>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Comentarios</ion-label>
+    <ion-textarea
+      placeholder="Escribe tus comentarios"
+      [(ngModel)]="comentarios"
+    ></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="full" color="success" (click)="guardarCalificacion()">
+    Enviar Calificación
+  </ion-button>
+</ion-content>

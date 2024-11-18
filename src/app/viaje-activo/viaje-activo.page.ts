@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router'; // Importa Router
 import { Geolocation } from '@capacitor/geolocation';
 import * as L from 'leaflet';
 
@@ -15,12 +15,14 @@ export class ViajeActivoPage implements OnInit, AfterViewInit {
   cantidadPersonas: number = 0;
   costoTotal: number = 0;
   comentarios: string = '';
+  calificacion: number = 0;
+  comentariosCalificacion: string = '';
   map: any;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {} // Inyección de Router
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       this.nombreUsuario = params['nombreUsuario'] || 'Usuario';
       this.destinoSeleccionado = params['destinoSeleccionado'] || '';
       this.fechaSalida = params['fechaSalida'] || '';
@@ -43,7 +45,7 @@ export class ViajeActivoPage implements OnInit, AfterViewInit {
       this.map = L.map('map').setView([latitude, longitude], 13);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
       }).addTo(this.map);
 
       // Marcador en la ubicación actual
@@ -53,6 +55,20 @@ export class ViajeActivoPage implements OnInit, AfterViewInit {
         .openPopup();
     } catch (error) {
       console.error('Error al obtener la ubicación:', error);
+    }
+  }
+
+  irACalificar() {
+    this.router.navigate(['/calificar-experiencia']); // Redirige a la página de calificación
+  }
+
+  guardarCalificacion() {
+    if (this.calificacion > 0) {
+      console.log('Calificación:', this.calificacion);
+      console.log('Comentarios:', this.comentariosCalificacion);
+      alert('¡Gracias por calificar tu experiencia!');
+    } else {
+      alert('Por favor selecciona una calificación antes de enviar.');
     }
   }
 }
