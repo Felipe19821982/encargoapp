@@ -22,26 +22,26 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Cantidad de personas:</ion-label>
-      <ion-text>{{ cantidadPersonas }}</ion-text>
+      <ion-label>Comentarios:</ion-label>
+      <ion-text>{{ comentarios }}</ion-text>
     </ion-item>
 
     <ion-item>
       <ion-label>Costo total:</ion-label>
-      <ion-text>{{ costoTotal | currency: 'CLP' }}</ion-text>
+      <ion-text>{{ costoTotal | currency: 'USD' }}</ion-text>
     </ion-item>
 
     <ion-item>
-      <ion-label>Comentarios:</ion-label>
-      <ion-text>{{ comentarios }}</ion-text>
+      <ion-label>Asientos disponibles:</ion-label>
+      <ion-text>{{ asientosDisponibles }}</ion-text>
     </ion-item>
   </ion-list>
 
-  <!-- Contenedor del mapa -->
   <div id="map" style="width: 100%; height: 300px;"></div>
 
-  <!-- Botón para calificar -->
-  <ion-button expand="full" color="primary" (click)="irACalificar()">
-    Calificar tu experiencia
-  </ion-button>
+  <div class="ion-padding">
+    <ion-button expand="full" color="primary" (click)="seleccionarAsiento()">
+      Reservar un asiento
+    </ion-button>
+  </div>
 </ion-content>

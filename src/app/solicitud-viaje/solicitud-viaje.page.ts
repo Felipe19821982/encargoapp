@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-solicitud-viaje',
@@ -10,24 +11,34 @@ export class SolicitudViajePage {
   nombreUsuario: string = '';
   destino: string = '';
   fechaSalida: string = '';
-  cantidadPersonas: number = 0;
   comentarios: string = '';
+  asientosDisponibles: number = 4; // Total de asientos disponibles
 
-  constructor(private navCtrl: NavController) {}
+  constructor(private router: Router, private alertController: AlertController) {}
 
-  enviarSolicitud() {
-    const costoPorPersona = this.destino === 'puenteAlto' ? 3500 : 5000;
-    const costoTotal = this.cantidadPersonas * costoPorPersona;
+  async enviarSolicitud() {
+    if (!this.nombreUsuario || !this.destino || !this.fechaSalida) {
+      const alert = await this.alertController.create({
+        header: 'Campos incompletos',
+        message: 'Por favor, completa todos los campos obligatorios.',
+        buttons: ['OK'],
+      });
+      await alert.present();
+      return;
+    }
 
-    this.navCtrl.navigateForward('/viaje-activo', {
+    const costoTotal = this.destino === 'puenteAlto' ? 2000 : 3000;
+
+    // Navegar a la pantalla de viaje activo y pasar datos
+    this.router.navigate(['/viaje-activo'], {
       queryParams: {
         nombreUsuario: this.nombreUsuario,
-        destino: this.destino,
+        destinoSeleccionado: this.destino,
         fechaSalida: this.fechaSalida,
-        cantidadPersonas: this.cantidadPersonas,
+        comentarios: this.comentarios,
+        asientosDisponibles: this.asientosDisponibles,
         costoTotal: costoTotal,
-        comentarios: this.comentarios
-      }
+      },
     });
   }
 }

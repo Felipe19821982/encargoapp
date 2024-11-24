@@ -4,7 +4,7 @@
       <ion-title size="large">Solicitud de viaje</ion-title>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-item>
     <video controls autoplay loop style="width: 100%; height: auto;">
       <source src="assets/VideoAuto.mp4" type="video/mp4">
@@ -20,8 +20,8 @@
     <ion-item>
       <ion-label position="floating">Destino</ion-label>
       <ion-select [(ngModel)]="destino">
-        <ion-select-option value="puenteAlto">Puente Alto - $3500</ion-select-option>
-        <ion-select-option value="maipu">Maipú - $5000</ion-select-option>
+        <ion-select-option value="puenteAlto">Puente Alto x vicuña mackenna - $2000</ion-select-option>
+        <ion-select-option value="maipu">Maipú villa los heroes - $3000</ion-select-option>
       </ion-select>
     </ion-item>
 
@@ -31,14 +31,9 @@
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Número de personas</ion-label>
-      <ion-input type="number" [(ngModel)]="cantidadPersonas" min="1" max="4"></ion-input>
-    </ion-item>
-
-    <ion-item>
       <ion-label position="floating">Comentarios adicionales</ion-label>
       <ion-textarea [(ngModel)]="comentarios"></ion-textarea>
-    </ion-item>    
+    </ion-item>
 
     <div class="ion-padding">
       <ion-button expand="full" color="primary" (click)="enviarSolicitud()">Enviar Solicitud</ion-button>
