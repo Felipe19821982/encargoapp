@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as L from 'leaflet';
 
 @Component({
@@ -13,10 +13,10 @@ export class ViajeActivoPage implements OnInit, AfterViewInit {
   fechaSalida: string = '';
   comentarios: string = '';
   costoTotal: number = 0;
-  asientosDisponibles: number = 4; // Valor por defecto
+  asientosDisponibles: number = 4;
   map: any;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
@@ -35,8 +35,7 @@ export class ViajeActivoPage implements OnInit, AfterViewInit {
 
   loadMap() {
     if (!this.map) {
-      this.map = L.map('map').setView([-33.4489, -70.6693], 13); // Coordenadas iniciales
-
+      this.map = L.map('map').setView([-33.4489, -70.6693], 13);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
       }).addTo(this.map);
@@ -50,5 +49,16 @@ export class ViajeActivoPage implements OnInit, AfterViewInit {
     } else {
       alert('No hay asientos disponibles.');
     }
+  }
+
+  calificarExperiencia() {
+    // Navega a la página de calificación con los parámetros relevantes
+    this.router.navigate(['/calificar-experiencia'], {
+      queryParams: {
+        nombreUsuario: this.nombreUsuario,
+        destinoSeleccionado: this.destinoSeleccionado,
+        fechaSalida: this.fechaSalida,
+      },
+    });
   }
 }

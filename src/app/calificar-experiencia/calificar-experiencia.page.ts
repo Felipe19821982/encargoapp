@@ -17,7 +17,7 @@ export class CalificarExperienciaPage {
       console.log('Calificación guardada:', this.calificacion);
       console.log('Comentarios:', this.comentarios);
       alert('¡Gracias por calificar tu experiencia!');
-      this.router.navigate(['/viaje-activo']); // Regresa a la página del viaje activo
+      this.router.navigate(['/portada']); // Regresa a la página del viaje activo
     } else {
       alert('Por favor selecciona una calificación antes de enviar.');
     }
