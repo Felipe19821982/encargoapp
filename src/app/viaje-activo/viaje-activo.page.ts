@@ -15,6 +15,7 @@ export class ViajeActivoPage implements OnInit, AfterViewInit {
   costoTotal: number = 0;
   asientosDisponibles: number = 4;
   map: any;
+  currentLocationMarker: any;
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
@@ -35,10 +36,47 @@ export class ViajeActivoPage implements OnInit, AfterViewInit {
 
   loadMap() {
     if (!this.map) {
+      // Crea el mapa con una vista inicial genérica
       this.map = L.map('map').setView([-33.4489, -70.6693], 13);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
       }).addTo(this.map);
+
+      // Obtener la ubicación actual
+      this.locateUser();
+    }
+  }
+
+  locateUser() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+
+          // Centra el mapa en la ubicación actual
+          this.map.setView([lat, lng], 15);
+
+          // Agrega un marcador en la ubicación actual
+          if (!this.currentLocationMarker) {
+            this.currentLocationMarker = L.marker([lat, lng]).addTo(this.map);
+            this.currentLocationMarker.bindPopup('Estás aquí').openPopup();
+          } else {
+            this.currentLocationMarker.setLatLng([lat, lng]);
+          }
+        },
+        (error) => {
+          console.error('Error obteniendo la ubicación:', error);
+          alert('No se pudo obtener la ubicación actual.');
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0,
+        }
+      );
+    } else {
+      alert('La geolocalización no es compatible con este navegador.');
     }
   }
 

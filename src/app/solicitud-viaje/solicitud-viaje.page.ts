@@ -27,7 +27,7 @@ export class SolicitudViajePage {
       return;
     }
 
-    const costoTotal = this.destino === 'puenteAlto' ? 2000 : 3000;
+    const costoTotal = this.destino === 'puenteAlto' ? 1000 : 1500;
 
     // Navegar a la pantalla de viaje activo y pasar datos
     this.router.navigate(['/viaje-activo'], {
